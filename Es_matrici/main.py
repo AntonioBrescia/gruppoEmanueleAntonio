@@ -18,3 +18,26 @@ class GestoreMatrice:
             if len(riga) != lunghezza:
                 return False
         return True
+    
+# ==========================
+# TEST GESTORE MATRICE
+# ==========================
+if __name__ == "__main__":
+    print("=== TEST GESTORE MATRICE ===")
+    matrice_test = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+
+    gestore = GestoreMatrice(matrice_test)
+
+    print("Stampa matrice:")
+    gestore.stampa_matrice()
+
+    print("Matrice valida?", gestore.valida_matrice())
+
+
+    # ==========================
+    # TEST ELABORATORE STATISTICO
+    # ==========================
