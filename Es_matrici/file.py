@@ -2,7 +2,7 @@
 # ================ MAIN ==============
 # ====================================
 
-import main
+import moduli as mod
 
 righe = int(input("Quante righe ha la matrice? "))
 colonne = int(input("Quante colonne ha la matrice? "))
@@ -25,13 +25,16 @@ while True:
     
         matrice.append(riga)
 
-    mat = main.ElaboratoreMatematco(matrice) # Creo l'oggetto
-    if mat.valida_matrice() == True: # vedo se è valida
+    mat = mod.ElaboratoreMatematco(matrice) # Creo l'oggetto
+    elaboratore = mod.ElaboratoreStatistico(matrice)
+    
+    if mat.valida_matrice() == True: # vedo se è valida (mat e elaboratore sono la stessa matrice)
         print("\nMatrice salvata con successo.")
         break
     else:
         print("\nMatrice non valida. Riprova.")
         continue
+    
 
 # MENU
 while True:
@@ -39,9 +42,11 @@ while True:
     print("(1) Visualizza matrice")
     print("(2) Trasponi matrice")
     print("(3) Moltiplica per scalare")
+    print("(4) Trova massimo")
+    print("(5) Calcola media di una riga")
     print("(0) Esci")
 
-    scelta = input("\nScelta (0-3): ")
+    scelta = input("\nScelta (0-5): ")
 
     match scelta:
         case "1":
@@ -60,6 +65,18 @@ while True:
             print(f"Matrice moltiplicata per {k}:")
             for riga in moltiplicata:
                 print(riga)
+            
+        case "4":
+            massimo = elaboratore.trova_massimo()
+            print(f"\nValore massimo: {massimo}")
+        
+        case "5":
+            indice = int(input("Inserisci indice della riga (0-based): "))
+            if 0 <= indice < righe:
+                media = elaboratore.media_riga(indice)
+                print(f"Media riga {indice}: {media}")
+            else:
+                print("Indice non valido!")
 
         case "0":
             print("\nUscita.")
