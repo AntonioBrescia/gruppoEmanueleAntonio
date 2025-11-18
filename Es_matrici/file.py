@@ -2,7 +2,7 @@
 # ================ MAIN ==============
 # ====================================
 
-import main
+import moduli as mod
 
 righe = int(input("Quante righe ha la matrice? "))
 colonne = int(input("Quante colonne ha la matrice? "))
@@ -25,7 +25,7 @@ while True:
     
         matrice.append(riga)
 
-    mat = main.ElaboratoreMatematco(matrice) # Creo l'oggetto
+    mat = mod.ElaboratoreMatematco(matrice) # Creo l'oggetto
     if mat.valida_matrice() == True: # vedo se è valida
         print("\nMatrice salvata con successo.")
         break
