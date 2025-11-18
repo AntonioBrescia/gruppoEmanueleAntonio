@@ -38,6 +38,4 @@ if __name__ == "__main__":
     print("Matrice valida?", gestore.valida_matrice())
 
 
-    # ==========================
-    # TEST ELABORATORE STATISTICO
-    # ==========================
+
